@@ -20,8 +20,11 @@ function EmailsSearchPageController(Emails, Pagination) {
     };
 
     function loadData(query) {
+        vm.dataLoading = true;
         Emails.search(query).then((data) => {
             vm.data = data;
+        }).finally(() => {
+            vm.dataLoading = false;
         });
     }
 }

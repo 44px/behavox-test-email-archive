@@ -4,7 +4,15 @@
                            on-change="$ctrl.onQueryChange(query)">
     </emails-search-filters>
 
-    <emails-search-list data="$ctrl.data"
+    <div layout="row"
+         layout-padding="10"
+         layout-align="center center"
+         ng-if="$ctrl.dataLoading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+
+    <emails-search-list ng-if="!$ctrl.dataLoading"
+                        data="$ctrl.data"
                         query="$ctrl.query"
                         on-change="$ctrl.onQueryChange(query)">
     </emails-search-list>

@@ -16,6 +16,20 @@ export default angular.module('app.emails', [])
         }).state('emails.search', {
             url: '/search',
             component: 'emailsSearchPage'
+        }).state('emails.view', {
+            url: '/view/:id',
+            params: {
+                id: {
+                    type: 'int'
+                }
+            },
+            resolve: {
+                email: (Emails, $stateParams) => {
+                    /* @ngInject */
+                    return Emails.get($stateParams.id);
+                }
+            },
+            template: 'Email: {{ $resolve.email }}'
         });
     })
     .name;

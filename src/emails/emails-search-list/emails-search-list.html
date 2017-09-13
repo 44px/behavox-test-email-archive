@@ -1,8 +1,8 @@
 <div class="emails-search-list">
     <md-list flex>
         <md-list-item class="md-3-line md-long-text"
-                      ng-repeat="email in $ctrl.data.items"
-                      ng-click="null">
+                      ng-repeat="email in $ctrl.data.items track by email.id"
+                      ui-sref="emails.view({id: email.id})">
             <div class="md-list-item-text">
                 <h3 ng-bind="email.subject || 'No subject'"></h3>
                 <p ng-bind="email.body | limitTo:200"></p>

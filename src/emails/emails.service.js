@@ -4,7 +4,17 @@ export default function($http, Pagination) {
 
     return {
         search(query) {
-            return $http.get(SOURCE, {cache: true}).then((response) => filterAndPaginate(query, response.data));
+            return getData().then((data) => filterAndPaginate(query, data));
+        },
+
+        get(id) {
+            return getData().then((data) => {
+                const emailById = data.find((email) => email.id === id);
+                if (!emailById) {
+                    throw new Error('Not found');
+                }
+                return emailById;
+            });
         },
 
         getInitialQuery() {
@@ -15,6 +25,14 @@ export default function($http, Pagination) {
             };
         }
     };
+
+    function getData() {
+        return $http.get(SOURCE, {cache: true}).then((response) => {
+            return response.data.map((email, id) => {
+                return Object.assign({}, email, {id});
+            });
+        });
+    }
 
     function filterAndPaginate(query, data = []) {
         let result = data;

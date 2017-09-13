@@ -5,6 +5,14 @@
                       ui-sref="emails.view({id: email.id})">
             <div class="md-list-item-text">
                 <h3 ng-bind="email.subject || 'No subject'"></h3>
+                <h4>
+                    <strong>From:</strong>
+                    <span ng-bind="email.from"></span>
+                </h4>
+                <h4>
+                    <strong>To:</strong>
+                    <span ng-bind="email.to | arrayToString"></span>
+                </h4>
                 <p ng-bind="email.body | limitTo:200"></p>
             </div>
         </md-list-item>

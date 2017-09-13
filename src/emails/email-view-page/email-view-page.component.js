@@ -1,5 +1,5 @@
 import template from './email-view-page.html';
-import './email-view.scss';
+import './email-view-page.scss';
 
 export default {
     bindings: {

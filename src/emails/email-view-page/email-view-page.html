@@ -1,32 +1,32 @@
-<div class="email-view">
-    <div class="email-view__header">
-        <div class="email-view__property">
-            <span class="email-view__label">From:</span>
+<div class="email-view-page">
+    <div class="email-view-page__header">
+        <div class="email-view-page__property">
+            <span class="email-view-page__label">From:</span>
             <span ng-bind="::$ctrl.email.from"></span>
         </div>
 
-        <div class="email-view__property">
-            <span class="email-view__label">To:</span>
+        <div class="email-view-page__property">
+            <span class="email-view-page__label">To:</span>
             <span ng-bind="::$ctrl.email.to | arrayToString"></span>
         </div>
 
-        <div class="email-view__property">
-            <span class="email-view__label">Cc:</span>
+        <div class="email-view-page__property">
+            <span class="email-view-page__label">Cc:</span>
             <span ng-bind="::$ctrl.email.cc | arrayToString"></span>
         </div>
 
-        <div class="email-view__property">
-            <span class="email-view__label">Bcc:</span>
+        <div class="email-view-page__property">
+            <span class="email-view-page__label">Bcc:</span>
             <span ng-bind="::$ctrl.email.bcc | arrayToString"></span>
         </div>
 
-        <div class="email-view__property">
-            <span class="email-view__label">Subject:</span>
+        <div class="email-view-page__property">
+            <span class="email-view-page__label">Subject:</span>
             <span ng-bind="::$ctrl.email.subject"></span>
         </div>
     </div>
 
-    <div class="email-view__body"
+    <div class="email-view-page__body"
          ng-bind="::$ctrl.email.body">
     </div>
 </div>

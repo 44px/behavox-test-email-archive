@@ -10,6 +10,10 @@
         </md-list-item>
     </md-list>
 
+    <div ng-if="!$ctrl.data.items.length">
+        No results found
+    </div>
+
     <pagination query="$ctrl.query"
                 total-pages="$ctrl.data.totalPages"
                 on-change="$ctrl.onChange({query: query})">

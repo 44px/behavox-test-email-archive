@@ -1,0 +1,17 @@
+.email-view {
+  &__header {
+    margin-bottom: 16px;
+  }
+
+  &__property {
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__body {
+    white-space: pre-wrap;
+  }
+}

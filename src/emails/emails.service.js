@@ -4,7 +4,7 @@ export default function($http, Pagination) {
 
     return {
         search(query) {
-            return $http.get(SOURCE).then((response) => filterAndPaginate(query, response.data));
+            return $http.get(SOURCE, {cache: true}).then((response) => filterAndPaginate(query, response.data));
         },
 
         getInitialQuery() {

@@ -20,8 +20,8 @@ function EmailsSearchPageController(Emails) {
     };
 
     function loadData(query) {
-        Emails.search(query).then((list) => {
-            vm.list = list;
+        Emails.search(query).then((data) => {
+            vm.data = data;
         });
     }
 }

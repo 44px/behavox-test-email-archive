@@ -1,6 +1,5 @@
 /* @ngInject */
-export default function($http) {
-    const ITEMS_PER_PAGE = 10;
+export default function($http, Pagination) {
     const SOURCE = 'https://raw.githubusercontent.com/44px/behavox-test-email-archive/master/data.json';
 
     return {
@@ -12,7 +11,7 @@ export default function($http) {
             return {
                 q: '',
                 page: 1,
-                perPage: ITEMS_PER_PAGE
+                perPage: Pagination.getPageSizes()[0]
             };
         }
     };
@@ -29,13 +28,6 @@ export default function($http) {
             });
         }
 
-        return paginate(query, result);
-    }
-
-    function paginate(query, data = []) {
-        const page = Math.max(1, query.page);
-        const perPage = query.perPage || ITEMS_PER_PAGE;
-        const firstItem = (page - 1) * perPage;
-        return data.slice(firstItem, firstItem + perPage);
+        return Pagination.paginate(query, result);
     }
 }

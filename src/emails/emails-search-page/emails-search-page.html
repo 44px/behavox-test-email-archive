@@ -1,16 +1,11 @@
-<div class='emails-search-page'>
+<div class="emails-search-page"
+     layout="column">
     <emails-search-filters query="$ctrl.query"
                            on-change="$ctrl.onQueryChange(query)">
     </emails-search-filters>
 
-    <md-list flex>
-        <md-list-item class="md-3-line md-long-text"
-                      ng-repeat="email in $ctrl.list"
-                      ng-click="null">
-            <div class="md-list-item-text">
-                <h3 ng-bind="email.subject || 'No subject'"></h3>
-                <p ng-bind="email.body | limitTo:200"></p>
-            </div>
-        </md-list-item>
-    </md-list>
+    <emails-search-list data="$ctrl.data"
+                        query="$ctrl.query"
+                        on-change="$ctrl.onQueryChange(query)">
+    </emails-search-list>
 </div>

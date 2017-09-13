@@ -1,0 +1,23 @@
+<div class="pagination"
+     layout="row"
+     layout-align="space-between center"
+     flex>
+    <md-button ng-disabled="$ctrl.query.page === 1"
+               ng-click="$ctrl.onPageChange($ctrl.query.page - 1)">
+        Prev page
+    </md-button>
+
+    <md-select class="md-no-underline"
+               ng-model="$ctrl.selectedPageSize"
+               ng-change="$ctrl.onPageSizeChange($ctrl.selectedPageSize)">
+        <md-option ng-repeat="pageSize in $ctrl.pageSizes"
+                   value="{{ pageSize }}">
+            {{ pageSize }} per page
+        </md-option>
+    </md-select>
+
+    <md-button ng-disabled="$ctrl.query.page === $ctrl.totalPages"
+               ng-click="$ctrl.onPageChange($ctrl.query.page + 1)">
+        Next page
+    </md-button>
+</div>

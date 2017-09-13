@@ -7,11 +7,11 @@ export default {
 
 
 /* @ngInject */
-function EmailsSearchPageController(Emails) {
+function EmailsSearchPageController(Emails, Pagination) {
     const vm = this;
 
-    vm.onQueryChange = (query) => {
-        vm.query = query;
+    vm.onQueryChange = (changes) => {
+        vm.query = Pagination.getUpdatedQuery(vm.query, changes);
         loadData(vm.query);
     };
 

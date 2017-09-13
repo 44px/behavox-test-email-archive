@@ -6,6 +6,13 @@ export default function() {
             return PAGE_SIZES;
         },
 
+        getUpdatedQuery(query, queryUpdate) {
+            const resetPage = Object.keys(queryUpdate).some((field) => field !== 'page');
+            return Object.assign({}, query, queryUpdate, {
+                page: resetPage ? 1 : queryUpdate.page
+            });
+        },
+
         paginate(query, data = []) {
             const page = Math.max(1, query.page);
             const perPage = query.perPage || PAGE_SIZES[0];

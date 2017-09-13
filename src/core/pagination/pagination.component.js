@@ -14,15 +14,9 @@ export default {
 function PaginationController(Pagination) {
     const vm = this;
 
-    vm.onPageChange = (page) => {
-        const query = Object.assign({}, vm.query, {page});
-        vm.onChange({query});
-    };
+    vm.onPageChange = (page) => vm.onChange({query: {page}});
 
-    vm.onPageSizeChange = (perPage) => {
-        const query = Object.assign({}, vm.query, {perPage});
-        vm.onChange({query});
-    };
+    vm.onPageSizeChange = (perPage) => vm.onChange({query: {perPage}});
 
     vm.$onInit = () => {
         vm.pageSizes = Pagination.getPageSizes();

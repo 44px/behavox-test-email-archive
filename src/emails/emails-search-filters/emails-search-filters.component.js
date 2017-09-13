@@ -17,7 +17,9 @@ function EmailsSearchFiltersController() {
 
     vm.$onChanges = ({query}) => {
         if (query.currentValue) {
-            vm.model = angular.copy(query.currentValue);
+            vm.model = {
+                q: vm.query.q
+            };
         }
     };
 }

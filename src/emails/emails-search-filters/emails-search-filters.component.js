@@ -12,13 +12,16 @@ export default {
 
 
 /* @ngInject */
-function EmailsSearchFiltersController() {
+function EmailsSearchFiltersController(Emails) {
     const vm = this;
+
+    vm.searchUsers = (query) => Emails.searchUsers(query);
 
     vm.$onChanges = ({query}) => {
         if (query.currentValue) {
             vm.model = {
-                q: vm.query.q
+                q: vm.query.q,
+                users: vm.query.users
             };
         }
     };

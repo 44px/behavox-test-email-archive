@@ -1,0 +1,19 @@
+<form class="emails-search-filters"
+      ng-submit="$ctrl.onChange({query: $ctrl.model})">
+    <md-whiteframe class="md-whiteframe-1dp"
+                   layout="column"
+                   layout-padding>
+        <md-input-container class="md-block">
+            <label>Search by subject or body text</label>
+            <input ng-model="$ctrl.model.q" />
+        </md-input-container>
+
+        <div layout="row"
+             layout-align="end">
+            <md-button class="md-raised md-primary"
+                       type="submit">
+                Search
+            </md-button>
+        </div>
+    </md-whiteframe>
+</form>

@@ -1,6 +1,6 @@
 # Behavox Test
 
-Live demo: TODO
+Live demo: https://44px.github.io/behavox-test-email-archive/
 
 ## Scripts
 

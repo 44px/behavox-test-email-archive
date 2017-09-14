@@ -15,7 +15,7 @@ export default function() {
 
         paginate(query, data = []) {
             const page = Math.max(1, query.page);
-            const perPage = query.perPage || PAGE_SIZES[0];
+            const perPage = parseInt(query.perPage, 10) || PAGE_SIZES[0];
             const firstItem = (page - 1) * perPage;
 
             return {
